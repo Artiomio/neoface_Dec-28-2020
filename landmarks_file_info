@@ -1,0 +1,4 @@
+    landmarks = np.array(eval(open(file_name + ".landmarks.txt").read()))
+    a = np.concatenate([ landmarks[:, 0].reshape(-1),
+                         landmarks[:, 0].reshape(-1),
+                         landmarks[:, 1].reshape(-1)])

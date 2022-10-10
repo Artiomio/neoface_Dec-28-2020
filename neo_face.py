@@ -11,6 +11,7 @@ from tensorflow.keras.models import load_model
 import keras
 
 
+
 from fit_image import fit_img_center
 def to_bw(img):
     if len(img.shape) == 2:
@@ -20,17 +21,6 @@ def to_bw(img):
     B = img[:, :, 2].astype(np.long)
     img_new = ((R + G + B) / 3).astype(np.uint8)
     return img_new
-
-
-model_path = glob.glob("model-22-11-2020.h5")[0] #'model100x100conv.model'
-print(f"Loading model: {model_path}"); #input('Press Enter')
-model = load_model(model_path, compile = False)
-
-
-    
-
-
-
 
 
 """ Finds the minimal horizontal rectangle containing given points
@@ -119,7 +109,12 @@ def landmark_params(landmarks):
     return a
     
 
-import dlib
+model_path = glob.glob("model-22-11-2020.h5")[0] #'model100x100conv.model'
+print(f"Loading model: {model_path}"); #input('Press Enter')
+model = load_model(model_path, compile = False)
+
+
+
 predictor_path = r"/Users/art/models/dlib/shape_predictor_68_face_landmarks.dat"
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)

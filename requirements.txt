@@ -1,0 +1,4 @@
+tensorflow
+dlib==19.24.0
+opencv-contrib-python==4.6.0.66
+keras==2.9.0
